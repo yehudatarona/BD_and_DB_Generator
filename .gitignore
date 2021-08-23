@@ -1,0 +1,11 @@
+/project_srv
+/airlines.sql
+/countries.sql
+/customers.sql
+/flights.sql
+/tickets.sql
+/users.sql
+/db_generator/node_modules
+/db_generator/temp.js
+
+
