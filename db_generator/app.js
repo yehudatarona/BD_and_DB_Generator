@@ -7,7 +7,11 @@ const db_connect = config.get('db');
 
 const scale = config.get('scale');
 
-let users_data = [];
+const ranDate = require('./date_generate');
+
+const results = ranDate();
+
+console.log("rrrrr",results.departure_time);
 
 // console.log(db_connect);
 // console.log(scale);

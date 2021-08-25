@@ -6,10 +6,13 @@
         "tickets_per_customer": 1
     },
     "db": {
-        "user": "postgres",
-        "host": "localhost",
-        "database": "flights_db_yt",
-        "password": "admin",
-        "port": 5432
+        "client": "pg",
+        "version": "12",
+        "connection": {
+          "host" : "127.0.0.1",
+          "user" : "postgres",
+          "password" : "admin",
+          "database" : "flights_db_yt"
+        }
     }
 }
