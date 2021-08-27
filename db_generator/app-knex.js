@@ -15,6 +15,13 @@ const raw_repo = require("./raw-repo");
 // };
 // getCountriers();
 
+
+let now = new Date(); 
+let isoDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toUTCString();
+let isoDatePlus3hours = new Date((now.getTime())+(1000 * 60 *60 *48)- now.getTimezoneOffset() * 60000).toUTCString();
+//OUTPUT 2021-08-25 20:23:00.000000
+
+
 // empty all tables in BD
 const emptyTablesAndResetDB = async () => {
     console.log("Delete and reset all tables...");
@@ -112,7 +119,7 @@ const flightsInsert = async () => {
             let flightsResult;
             for (let j = 0; j < (Math.floor(Math.random() * scale.flights_per_airline) + 1); j++) {
 
-                flightsResult = await raw_repo.getRawResult(`select * from sp_insert_flights(${i+1},${Math.floor(Math.random() * 246) + 1},${Math.floor(Math.random() * 247) + 1},'2021-10-14 11:20:10','2021-10-21 11:20:10',${Math.floor(Math.random() * 250)});`);
+                flightsResult = await raw_repo.getRawResult(`select * from sp_insert_flights(${i+1},${Math.floor(Math.random() * 246) + 1},${Math.floor(Math.random() * 247) + 1},'${isoDate}','${isoDatePlus3hours}',${Math.floor(Math.random() * 250)});`);
             }
             if (i == scale.airlines - 1) {
                 console.log("Number of added items = ", flightsResult.rows[0].sp_insert_flights, "flights");
